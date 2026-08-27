@@ -13,8 +13,8 @@ A few lines of bash is all you need (gh-qstack)(/gh-qstack)!
 
 ## Commands
 
-1. `gh qstack "message"` for adding a new layer 
-2. `gh qstack f` or `gh qstack fixup` for modifying an existing layer and fixing things up the stack based on the recent [git history fixup](https://lalitm.com/post/git-history/)
+1. `gh qstack "message"` for adding a new layer with the init, branch name, checkout, add, commit, push, and submit.
+2. `gh qstack f` or `gh qstack fixup` for modifying an existing layer and fixing things up the stack based on the recent [git history fixup](https://lalitm.com/post/git-history/). Note, this needs `git` version 2.55 or later.
 
 There's also flags if you want to skip submitting and pushing
 * `--no-submit` - will not run `gh stack submit` on `gh qstack`
@@ -32,9 +32,14 @@ Quite similar to other `gh` CLI [extensions](https://cli.github.com/manual/gh_ex
 $ gh extension install harsh183/gh-qstack
 ```
 
+## Requirements
+
+1. [gh cli](https://cli.github.com/) as recent as you can. The [gh-stack](https://github.com/github/gh-stack) official docs say it should be v2+
+2. [git](https://git-scm.com/install/) as recent as can if you want the `gh qstack fixup` command to work since `git history fixup` was introduced recently in `v2.55` where it's still experimental and it will get fixes over time. A lot of system git versions are actually fairly old, so make sure to upgrade. If you don't want `fixup`, an older `git` version should probably work.
+
 ## Example
 
-Based off dog fooding this very project.
+Based off dog fooding this very project:
 
 1. When there's no stack because you are on your default trunk branch, here `main`. Run `gh qstack "message"`:
 ```sh
@@ -60,6 +65,8 @@ Pushing to origin...
 ~/E/gh-qstack (quick/20260827100519|✔) $
 ```
 
+This made [PR 1](https://github.com/harsh183/gh-qstack/pull/1)
+
 2. Now do some more changes, then it's simply `gh-qstack` again. Here we're also showing the `--no-submit` param in case you don't want to make a PR right away.
 ```sh
 ~/E/gh-qstack (quick/20260827100519|✔) $ vim gh-qstack
@@ -78,6 +85,7 @@ To create PRs for this stack, run `gh stack submit`
 Pushing 2 branches to origin...
 ✓ Pushed 2 branches
 To create PRs for this stack, run `gh stack submit`
+
 ```
 
 4. Going on, adding yet another layer where I'll submit my current and previous PR.
@@ -97,6 +105,8 @@ PR #1 for quick/20260827100519 is up to date
 ~/E/gh-qstack (08-27-flesh_out_readme|✚1) $
 ```
 
+This made [PR2](https://github.com/harsh183/gh-qstack/pull/2) and [PR3](https://github.com/harsh183/gh-qstack/pull/3)
+
 5. Actually I want to go back and change the default branch again. Let's do that
 ```sh
 ~/E/gh-qstack (08-27-flesh_out_readme|✔) $ gs down
@@ -107,6 +117,7 @@ Pushing 3 branches to origin...
 ✓ Pushed 3 branches
 Run `gh stack view` to see your stack of PRs
 ```
+Now this updated [PR2](https://github.com/harsh183/gh-qstack/pull/2), and you can actually see the result of the force push in the PR page with the [diff](https://github.com/harsh183/gh-qstack/compare/4d7f0a5cfae7551c086b600019082bb8776d7f96..bd03c066b4360af410a66e0aa1dabd27836fd7f8)
 
 6. Okay now I want to add everything I just did and wrap up this README
 ```sh
@@ -123,6 +134,8 @@ PR #3 for 08-27-flesh_out_readme is up to date
 ✓ Pushed and synced 4 branches
 ~/E/gh-qstack (08-27-finish_readme|✔) $
 ```
+
+This made [PR4](https://github.com/harsh183/gh-qstack/pull/5)
 
 ## Why This Exists
 
