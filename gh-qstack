@@ -26,7 +26,7 @@ current_branch=$(git branch --show-current)
 default_branch=$(gh repo view --json defaultBranchRef --jq '.defaultBranchRef.name')
 
 if [ "$current_branch" = "$default_branch" ]; then
-	new_branch="quick/$(date +%Y%m%d%H%M%S)"
+	new_branch="quick-stack/$(date +%Y%m%d%H%M%S)"
 	gh stack init "$new_branch"
 	git add -A
 	git commit -m "$message"
