@@ -111,6 +111,17 @@ Run `gh stack view` to see your stack of PRs
 6. Okay now I want to add everything I just did and wrap up this README
 ```sh
 ~/E/gh-qstack (08-27-flesh_out_readme|✚2) $ gh qs "Finish README" --no-push
+✓ Created branch 08-27-finish_readme (layer 4) with commit 0575e77aaf6fbc72eeb896f7c7bb07adff375c67
+~/E/gh-qstack (08-27-finish_readme|✔) $ gs submit
+Checking stack state...
+Pushing to origin...
+PR #1 for quick/20260827100519 is up to date
+PR #2 for 08-27-change_default_branch_name is up to date
+PR #3 for 08-27-flesh_out_readme is up to date
+✓ Created PR #5 for 08-27-finish_readme
+✓ Stack updated on GitHub with 4 PRs (stack #4)
+✓ Pushed and synced 4 branches
+~/E/gh-qstack (08-27-finish_readme|✔) $
 ```
 
 ## Why This Exists
