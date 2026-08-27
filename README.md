@@ -137,6 +137,9 @@ PR #3 for 08-27-flesh_out_readme is up to date
 
 This made [PR4](https://github.com/harsh183/gh-qstack/pull/5)
 
+here's what your stack looks like after more dogfooding in the UI
+<img width="904" height="470" alt="image" src="https://github.com/user-attachments/assets/03a0eb62-7c4d-4570-96d2-01b425ce50a2" />
+
 ## Why This Exists
 
 Now `gh stack` has a [Abbreviated workflow](https://github.com/github/gh-stack#abbreviated-workflow) that uses `gs add -Am "commit message"` that covers branch name, checkout, add, commit. I've had a good time using it, and I suggest starting with that. But I was missing
