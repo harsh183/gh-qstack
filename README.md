@@ -9,7 +9,7 @@ Love the [gh stack](https://github.com/github/gh-stack) CLI but want to be quick
 * pushes
 * starts submit GH PR flow
 
-A few lines of bash is all you need (gh-qstack)(/gh-qstack)!
+A few lines of bash is all you need [gh-qstack](/gh-qstack)!
 
 ## Commands
 
