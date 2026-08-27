@@ -9,10 +9,16 @@ Love the [gh stack](https://github.com/github/gh-stack) CLI but want to be quick
 * pushes
 * starts submit GH PR flow
 
+A few lines of bash is all you need (gh-qstack)(/gh-qstack)!
+
 ## Commands
 
 1. `gh qstack "message"` for adding a new layer 
 2. `gh qstack f` or `gh qstack fixup` for modifying an existing layer and fixing things up the stack based on the recent [git history fixup](https://lalitm.com/post/git-history/)
+
+There's also flags if you want to skip submitting and pushing
+* `--no-submit` - will not run `gh stack submit` on `gh qstack`
+* `--no-push` - will not run `gh stack push` on `gh qstack` and `gh qstack fixup`. Note: Since push is disabled, submit won't be run either
 
 If you want to save even more keystrokes, try out these aliases
 ```sh
@@ -77,11 +83,34 @@ To create PRs for this stack, run `gh stack submit`
 4. Going on, adding yet another layer where I'll submit my current and previous PR.
 ```sh
 ~/E/gh-qstack (08-27-change_default_branch_name|✚1) $ gh qs "Flesh out README"
-
+✓ Created branch 08-27-flesh_out_readme (layer 3) with commit 39edf804a703f1d83793caa7496b48a32b9a33a9
+Pushing 3 branches to origin...
+✓ Pushed 3 branches
+To create PRs for this stack, run `gh stack submit`
+Checking stack state...
+Pushing to origin...
+PR #1 for quick/20260827100519 is up to date
+✓ Created PR #2 for 08-27-change_default_branch_name
+✓ Created PR #3 for 08-27-flesh_out_readme
+✓ Stack created on GitHub with 3 PRs (stack #4)
+✓ Pushed and synced 3 branches
+~/E/gh-qstack (08-27-flesh_out_readme|✚1) $
 ```
 
 5. Actually I want to go back and change the default branch again. Let's do that
 ```sh
+~/E/gh-qstack (08-27-flesh_out_readme|✔) $ gs down
+✓ Checked out 08-27-change_default_branch_name, 1 branch down
+~/E/gh-qstack (08-27-change_default_branch_name|✔) $ vim gh-qstack
+~/E/gh-qstack (08-27-change_default_branch_name|✚1) $ gh qsf
+Pushing 3 branches to origin...
+✓ Pushed 3 branches
+Run `gh stack view` to see your stack of PRs
+```
+
+6. Okay now I want to add everything I just did and wrap up this README
+```sh
+~/E/gh-qstack (08-27-flesh_out_readme|✚2) $ gh qs "Finish README" --no-push
 ```
 
 ## Why This Exists
