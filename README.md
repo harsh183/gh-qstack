@@ -32,6 +32,13 @@ Quite similar to other `gh` CLI [extensions](https://cli.github.com/manual/gh_ex
 $ gh extension install harsh183/gh-qstack
 ```
 
+Whenever there's an update, `gh` cli will tell you automatically after using `qstack`:
+```sh
+A new release of qstack is available: 8603e16354eacd7ca77aa658b113bcc80a8dbe6d → 08d6f3689d3793e0cb8727da96947947af651102
+To upgrade, run: gh extension upgrade qstack
+git@github.com:harsh183/gh-qstack.git
+```
+
 ## Requirements
 
 1. [gh cli](https://cli.github.com/) as recent as you can. The [gh-stack](https://github.com/github/gh-stack) official docs say it should be v2+
