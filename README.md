@@ -15,6 +15,7 @@ A few lines of bash is all you need [gh-qstack](/gh-qstack)!
 
 1. `gh qstack "message"` for adding a new layer with the init, branch name, checkout, add, commit, push, and submit.
 2. `gh qstack f` or `gh qstack fixup` for modifying an existing layer and fixing things up the stack based on the recent [git history fixup](https://lalitm.com/post/git-history/). Note, this needs `git` version 2.55 or later.
+3. `gh qstack --help` for getting help text on commands and their flag
 
 There's also flags if you want to skip submitting and pushing
 * `--no-submit` - will not run `gh stack submit` on `gh qstack`
