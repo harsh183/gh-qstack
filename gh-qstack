@@ -36,9 +36,10 @@ fi
 
 
 if [ "$push" = true ]; then
-	gh stack push
 	if [ "$submit" = true ]; then
-		gh stack submit
+		gh stack submit # submit also pushes
+	else
+		gh stack push
 	fi
 fi
 
