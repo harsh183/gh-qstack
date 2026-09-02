@@ -1,6 +1,6 @@
 # gh-qstack - GitHub CLI Quick Stack
 
-Love the [gh stack](https://github.com/github/gh-stack) CLI but want to be quick? `gh-qstack` to the rescue for a single command that:
+Love the [gh stack](https://github.com/github/gh-stack) CLI but want to be quick? `gh-qstack` to the rescue for a single command `gh qstack` that:
 * initializes a GitHub Stack
 * automatically picks a branch name
 * checks out that branch in the stack
@@ -8,6 +8,11 @@ Love the [gh stack](https://github.com/github/gh-stack) CLI but want to be quick
 * commits them given your message, which also becomes the PR title
 * pushes
 * starts submit GH PR flow
+
+Now when you want to go back to an existing layer to update something? `gh qstack fixup`
+* adds all changes
+* uses `git history fixup` to update the current commit and upstream branches
+* pushes all updated branches
 
 A few lines of bash is all you need [gh-qstack](/gh-qstack)!
 
