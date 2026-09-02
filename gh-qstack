@@ -10,7 +10,7 @@ if [ "$1" = "--help" ] || [ "$1" == "h" ]; then
 	echo "Options"
 	echo "--no-submit: skip gh stack submit"
 	echo "--no-push  : skip gh stack push, also skips submit"
-        echo ""
+    echo ""
 	echo "2) gh qstack fixup"
 	echo "Fixup an existing stack layer with current changes, including upstream layers, and then push"
 	echo "Suggested alias: `gh alias set qsf 'qstack fixup'`"
@@ -24,10 +24,10 @@ submit=true
 push=true
 for arg in "$@"; do
     if [ "$arg" = "--no-submit" ]; then
-	submit=false
+		submit=false
     fi
     if [ "$arg" = "--no-push" ]; then
-	push=false
+		push=false
     fi
 done
 
