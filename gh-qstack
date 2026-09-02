@@ -14,7 +14,7 @@ done
 
 if [ "$1" = "fixup" ] || [ "$1" = "f" ]; then
 	git add -A
-	git history fixup HEAD
+	git history fixup HEAD # git history fixup is why we need a recent git version
 	if [ "$push" = true ]; then
 		gh stack push
 	fi
