@@ -1,6 +1,25 @@
 #!/bin/sh
 set -e
 
+if [ "$1" = "--help" ] || [ "$1" == "h" ]; then
+	echo "gh-qstack is great for one command for common gh-stack flows"
+	echo "Usage:"
+	echo "1) gh qstack 'commit message' [option]"
+	echo "Create a new branch from either default or mid stack, add code, commit, push, and submit"
+	echo "Suggested alias: `gh alias set qs 'qstack'`"
+	echo "Options"
+	echo "--no-submit: skip gh stack submit"
+	echo "--no-push  : skip gh stack push, also skips submit"
+        echo ""
+	echo "2) gh qstack fixup"
+	echo "Fixup an existing stack layer with current changes, including upstream layers, and then push"
+	echo "Suggested alias: `gh alias set qsf 'qstack fixup'`"
+	echo "Options"
+	echo "--no-push  : skip gh stack push"
+	echo ""
+	exit 0
+fi
+
 submit=true
 push=true
 for arg in "$@"; do
@@ -14,7 +33,7 @@ done
 
 if [ "$1" = "fixup" ] || [ "$1" = "f" ]; then
 	git add -A
-	git history fixup HEAD
+	git history fixup HEAD # git history fixup is why we need a recent git version
 	if [ "$push" = true ]; then
 		gh stack push
 	fi
@@ -36,9 +55,10 @@ fi
 
 
 if [ "$push" = true ]; then
-	gh stack push
 	if [ "$submit" = true ]; then
-		gh stack submit
+		gh stack submit # submit also pushes
+	else
+		gh stack push
 	fi
 fi
 
