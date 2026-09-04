@@ -30,6 +30,7 @@ layer2 $ gh qstack "Layer 3 with even more work"
 layer3 $ gs stack bottom
 layer1 $ vim work.rb # addressing comments
 layer1 $ gh qstack fixup
+
 layer1 $ gh stack top # now back to where I was working earlier
 layer3 $ vim even_more_work.rb
 ```
