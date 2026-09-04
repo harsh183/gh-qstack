@@ -16,6 +16,23 @@ Now when you want to go back to an existing layer to update something? `gh qstac
 
 A few lines of bash is all you need: [gh-qstack](/gh-qstack)
 
+```sh
+master $ vim work.rb
+layer1 $ gh qstack "Layer 1 that kicks off a stack"
+
+layer 1 $ vim more_work.rb 
+layer 1 $ gh qstack "Layer 2 that adds on more work"
+
+layer 2 $ vim even_more_work.rb
+layer 2 $ gh qstack "Layer 3 with even more work"
+
+# now some PR comments come in on PR1 
+layer 3 $ gs stack bottom
+layer 1 $ vim work.rb # addressing comments
+layer 1 $ gh qstack fixup
+layer 1 $ gh stack top # now back to where I was working earlier
+```
+
 ## Commands
 
 1. `gh qstack "message"` for adding a new layer with the init, branch name, checkout, add, commit, push, and submit.
@@ -50,9 +67,9 @@ git@github.com:harsh183/gh-qstack.git
 1. [gh cli](https://cli.github.com/) as recent as you can. The [gh-stack](https://github.com/github/gh-stack) official docs say it should be v2+
 2. [git](https://git-scm.com/install/) as recent as can if you want the `gh qstack fixup` command to work since `git history fixup` was introduced recently in `v2.55` where it's still experimental and it will get fixes over time. A lot of system git versions are actually fairly old, so make sure to upgrade. If you don't want `fixup`, an older `git` version should probably work.
 
-## Example
+## Example with output
 
-Based off dog fooding this very project:
+Based off dog-fooding this very project:
 
 1. When there's no stack because you are on your default trunk branch, here `main`. Run `gh qstack "message"`:
 ```sh
@@ -79,6 +96,8 @@ Pushing to origin...
 ```
 
 This made [PR 1](https://github.com/harsh183/gh-qstack/pull/1)
+
+Note: The first branch prefix changed as I went along this example, but it works basically the same.
 
 2. Now do some more changes, then it's simply `gh-qstack` again. Here we're also showing the `--no-submit` param in case you don't want to make a PR right away.
 ```sh
