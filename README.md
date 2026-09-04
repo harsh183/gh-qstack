@@ -14,7 +14,7 @@ Now when you want to go back to an existing layer to update something? `gh qstac
 * uses `git history fixup` to update the current commit and upstream branches
 * pushes all updated branches
 
-A few lines of bash is all you need: [gh-qstack](/gh-qstack)
+A few lines of sh is all you need: [gh-qstack](/gh-qstack)
 
 ```sh
 master $ vim work.rb
