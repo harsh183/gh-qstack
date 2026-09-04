@@ -20,17 +20,18 @@ A few lines of bash is all you need: [gh-qstack](/gh-qstack)
 master $ vim work.rb
 layer1 $ gh qstack "Layer 1 that kicks off a stack"
 
-layer 1 $ vim more_work.rb 
-layer 1 $ gh qstack "Layer 2 that adds on more work"
+layer1 $ vim more_work.rb 
+layer1 $ gh qstack "Layer 2 that adds on more work"
 
-layer 2 $ vim even_more_work.rb
-layer 2 $ gh qstack "Layer 3 with even more work"
+layer2 $ vim even_more_work.rb
+layer2 $ gh qstack "Layer 3 with even more work"
 
 # now some PR comments come in on PR1 
-layer 3 $ gs stack bottom
-layer 1 $ vim work.rb # addressing comments
-layer 1 $ gh qstack fixup
-layer 1 $ gh stack top # now back to where I was working earlier
+layer3 $ gs stack bottom
+layer1 $ vim work.rb # addressing comments
+layer1 $ gh qstack fixup
+layer1 $ gh stack top # now back to where I was working earlier
+layer3 $ vim even_more_work.rb
 ```
 
 ## Commands
