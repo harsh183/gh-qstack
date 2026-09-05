@@ -27,7 +27,7 @@ layer2 $ vim even_more_work.rb
 layer2 $ gh qstack "Layer 3 with even more work"
 
 # now some PR comments come in on PR1 
-layer3 $ git stack bottom
+layer3 $ gh stack bottom
 layer1 $ vim work.rb # addressing comments
 layer1 $ gh qstack fixup
 
