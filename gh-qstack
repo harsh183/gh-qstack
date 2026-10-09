@@ -2,7 +2,7 @@
 set -e
 
 if [ "$1" = "--help" ] || [ "$1" == "h" ]; then
-	echo "gh-qstack is great for one command for common gh-stack flows"
+	echo "gh-qstack is for one command common gh-stack flows"
 	echo "Usage:"
 	echo "1) gh qstack 'commit message' [option]"
 	echo "Create a new branch from either default or mid stack, add code, commit, push, and submit"
