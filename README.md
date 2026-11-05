@@ -66,6 +66,7 @@ To upgrade, run: gh extension upgrade qstack
 ## Requirements
 
 1. [gh cli](https://cli.github.com/) as recent as you can. The [gh-stack](https://github.com/github/gh-stack) official docs say it should be v2+
+2. [gh stack](https://github.com/github/gh-stack) past `v0.1` but honestly the more recently versions come with many stack fixes so I reccomend the soonest possible one as well
 2. [git](https://git-scm.com/install/) as recent as can if you want the `gh qstack fixup` command to work since `git history fixup` was introduced recently in `v2.55` where it's still experimental and it will get fixes over time. A lot of system git versions are actually fairly old, so make sure to upgrade. If you don't want `fixup`, an older `git` version should probably work.
 
 ## Example with output
